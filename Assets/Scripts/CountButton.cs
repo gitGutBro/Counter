@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CountButton : MonoBehaviour
 {
-    private const float Delay = 0.5f;
+    private const float DelaySeconds = 0.5f;
+    private readonly WaitForSecondsRealtime Delay = new(DelaySeconds);
 
     [SerializeField] private TextMeshProUGUI _counterView;
 
@@ -30,7 +31,7 @@ public class CountButton : MonoBehaviour
     {
         while(enabled)
         {
-            yield return new WaitForSeconds(Delay);
+            yield return Delay;
             _counter++;
             print(_counter);
             _counterView.text = Convert.ToString(_counter);
