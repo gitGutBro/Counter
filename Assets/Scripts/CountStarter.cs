@@ -3,11 +3,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class CountButton : MonoBehaviour
+public class CountStarter : MonoBehaviour
 {
     private const float DelaySeconds = 0.5f;
-    private readonly WaitForSecondsRealtime Delay = new(DelaySeconds);
 
+    private readonly WaitForSecondsRealtime _delay = new(DelaySeconds);
     [SerializeField] private TextMeshProUGUI _counterView;
 
     private int _counter;
@@ -31,7 +31,7 @@ public class CountButton : MonoBehaviour
     {
         while(enabled)
         {
-            yield return Delay;
+            yield return _delay;
             _counter++;
             print(_counter);
             _counterView.text = Convert.ToString(_counter);
