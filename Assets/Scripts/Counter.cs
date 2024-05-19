@@ -3,14 +3,14 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class CountStarter : MonoBehaviour
+public class Counter : MonoBehaviour
 {
     private const float DelaySeconds = 0.5f;
 
     private readonly WaitForSecondsRealtime _delay = new(DelaySeconds);
-    [SerializeField] private TextMeshProUGUI _counterView;
+    [SerializeField] private TextMeshProUGUI _iteratorView;
 
-    private int _counter;
+    private int _iterator;
     private bool _isCounting = false;
 
     private void OnMouseDown()
@@ -32,9 +32,9 @@ public class CountStarter : MonoBehaviour
         while(enabled)
         {
             yield return _delay;
-            _counter++;
-            print(_counter);
-            _counterView.text = Convert.ToString(_counter);
+            _iterator++;
+            print(_iterator);
+            _iteratorView.text = Convert.ToString(_iterator);
         }
     }
 }
